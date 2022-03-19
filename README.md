@@ -21,7 +21,7 @@ The resulting project is a compendium of different techniques from different sou
 especial thanks go to:
 - [Dario Radečić](https://betterdatascience.com/author/dario/) and his awesome blog posts for installing Kafka and creating a simple producer
 - [@hey-johnnypark](https://github.com/hey-johnnypark) for implementing a Docker image containing both Kafka and Zookeper altogether, removing the hassle of setting up a docker-compose setup.
-  * This image was modified with the provided environment variables to generate [my own kafka-zookeper image](https://hub.docker.com/r/ulitol97/kafka-zookeeper) with:
+  * This image was modified with the provided environment variables to generate [my own kafka-zookeper image](https://hub.docker.com/r/ulitol97/kafka-zookeeper) (see [Dockerfile](https://github.com/ulitol97/kafka-producer-demo/blob/main/Dockerfile_kafka-zookeper)) with:
     - Apache Kafka `3.1.0` (latest release as of now)
     - Apache Zookeper `3.7.0` (latest release in the stable branch as of now)
   * The image itself can be found in [hey-johnnypark/docker-kafka-zookeeper](https://github.com/hey-johnnypark/docker-kafka-zookeeper), the main idea coming from Spotify's deprecated [spotify/docker-kafka](https://github.com/spotify/docker-kafka)
