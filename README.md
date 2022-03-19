@@ -7,8 +7,9 @@ The project consists on:
 ## Running the demo
 
 1. Tweak `producer.py` to fit your data needs (it is programmed to produce data that serves my use case)
-2. Build a Docker image using the project's `Dockerfile` and run it
-3. Enjoy an endless Kafka stream in the configured host and port
+2. Build a Docker image using the project's `Dockerfile` (or [pull](https://hub.docker.com/r/ulitol97/kafka-producer))
+3. Run your image in a new container: `docker run --name kafka-producer -d -p 2181:2181 -p 9092:9092 kafka-producer:tag`
+4. Enjoy an endless Kafka stream in the configured host and port
 
 ### Tweaking the image
 The following environment variables can be used to modify app containers:
