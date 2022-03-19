@@ -1,3 +1,5 @@
+[![Docker Image Size (tag)](https://img.shields.io/docker/image-size/ulitol97/kafka-zookeeper/dev?label=kafka%2Bzookeeper)](https://hub.docker.com/r/ulitol97/kafka-zookeeper)
+
 # kafka-producer-demo
 Containerized Kafka producer endlessly producing data for testing and demoing of consumer apps
 The project consists on:
