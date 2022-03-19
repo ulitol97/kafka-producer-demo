@@ -8,6 +8,7 @@
 # * LOG_RETENTION_MINUTES: the minimum age of a log file in minutes to be eligible for deletion. Superseedes LOG_RETENTION_HOURS when defined
 # * LOG_RETENTION_BYTES: configure the size at which segments are pruned from the log, (default is 1073741824, for 1GB)
 # * NUM_PARTITIONS: configure the default number of log partitions per topic
+# * AUTO_CREATE_TOPICS: whether a new topic should be created when a non existent topic is written to (default is false)
 
 # Configure advertised host/port if we run in helios
 if [ ! -z "$HELIOS_PORT_kafka" ]; then
