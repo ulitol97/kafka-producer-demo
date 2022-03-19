@@ -5,7 +5,7 @@ FROM alpine:3.15
 
 RUN apk add --update openjdk17-jre supervisor bash gcompat
 
-ENV ZOOKEEPER_VERSION 3.7.0
+ARG ZOOKEEPER_VERSION 3.7.0
 ENV ZOOKEEPER_HOME /opt/zookeeper-"$ZOOKEEPER_VERSION"
 
 # Download and extract Zookeeper. Cleanup downloaded files.
@@ -14,8 +14,8 @@ RUN ls -l /tmp/zookeeper-"$ZOOKEEPER_VERSION".tgz
 RUN tar xfz /tmp/zookeeper-"$ZOOKEEPER_VERSION".tgz -C /opt && rm /tmp/zookeeper-"$ZOOKEEPER_VERSION".tgz
 ADD assets/conf/zoo.cfg $ZOOKEEPER_HOME/conf
 
-ENV SCALA_VERSION 2.13
-ENV KAFKA_VERSION 3.1.0
+ARG SCALA_VERSION 2.13
+ARG KAFKA_VERSION 3.1.0
 # Combine scala version and Kafka version to reference our Kafka
 ENV KAFKA_FULL_VERSION_NAME kafka_${SCALA_VERSION}-${KAFKA_VERSION}
 
