@@ -10,6 +10,15 @@ The project consists on:
 2. Build a Docker image using the project's `Dockerfile` and run it
 3. Enjoy an endless Kafka stream in the configured host and port
 
+### Tweaking the image
+The following environment variables can be used to modify app containers:
+
+
+### The base image
+As explained in [_Behind the scenes_](#behind-the-scenes), the demo itself relies on a custom image running Kafka and Zookeeper altogether. You are free to build your own derived images, although for most changes overriding one of this build arguments shall do the trick:
+- `KAFKA_VERSION`: Kafka version to be downloaded and installed
+- `ZOOKEEPER_VERSION`: Zookeeper version to be downloaded and installed. Download links are slighly different since 3.5, so downgrading below that won't work without adapting the Dockerfile
+- `SCALA_VERSION`: Scala version, should remain 2.13 for a while for new Kafka versions
 
 ## Why this project
 I was involved in a project requiring validation of persistent data streams, but I needed some data producers to begin testing and deployment!
