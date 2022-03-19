@@ -3,7 +3,7 @@
 # kafka-producer-demo
 Containerized Kafka producer endlessly producing data for testing and demoing of consumer apps
 The project consists on:
-- A python script using Kafka's python package to endlessly produce data
+- A python script using [`kafka-python`](https://pypi.org/project/kafka-python/) to endlessly produce data
 - A modified Docker image already prepared with a producer and ready to produce data on launch
 
 ## Running the demo
