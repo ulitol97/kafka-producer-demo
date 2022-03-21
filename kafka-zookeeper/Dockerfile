@@ -9,7 +9,7 @@ ARG ZOOKEEPER_VERSION=3.7.0
 ENV ZOOKEEPER_HOME /opt/apache-zookeeper-"$ZOOKEEPER_VERSION"-bin
 
 # Download and extract Zookeeper. Cleanup downloaded files.
-RUN wget -q http://archive.apache.org/dist/zookeeper/zookeeper-"$ZOOKEEPER_VERSION"/apache-zookeeper-"$ZOOKEEPER_VERSION"-bin.tar.gz -O /tmp/zookeeper-"$ZOOKEEPER_VERSION".tgz
+RUN wget -q https://archive.apache.org/dist/zookeeper/zookeeper-"$ZOOKEEPER_VERSION"/apache-zookeeper-"$ZOOKEEPER_VERSION"-bin.tar.gz -O /tmp/zookeeper-"$ZOOKEEPER_VERSION".tgz
 RUN ls -l /tmp/zookeeper-"$ZOOKEEPER_VERSION".tgz
 RUN tar xfz /tmp/zookeeper-"$ZOOKEEPER_VERSION".tgz -C /opt && rm /tmp/zookeeper-"$ZOOKEEPER_VERSION".tgz
 ADD assets/conf/zoo.cfg $ZOOKEEPER_HOME/conf
