@@ -1,3 +1,4 @@
+import datetime
 import os
 import random
 import signal
@@ -42,7 +43,20 @@ def get_topic():
 
 def generate_message(arg):
     """Produce data messages: i.e.: TURTLE data mimicking a sensor reading"""
-    return str(arg)
+    # https://rdfshape.weso.es/link/16478801915
+    # Produce a random temperature in range
+    temperature = random.uniform(16.0, 22.5)
+    # Produce current time in ISO 8601
+    current_time = datetime.datetime.now().replace(microsecond=0).isoformat()
+    new_message = f"""
+    @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+    @prefix ex:  <http://example.org/> .
+    ex:reading a ex:sensorReading ;
+          ex:readingDatetime "{current_time}"^^xsd:dateTime ;
+          ex:readingTemperature "{temperature:.2f}"^^xsd:decimal ;
+          ex:status "OK" .
+    """.strip()
+    return new_message
 
 
 if __name__ == "__main__":
