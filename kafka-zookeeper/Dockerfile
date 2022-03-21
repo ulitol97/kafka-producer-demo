@@ -16,6 +16,7 @@ ADD assets/conf/zoo.cfg $ZOOKEEPER_HOME/conf
 
 ARG SCALA_VERSION=2.13
 ARG KAFKA_VERSION=3.1.0
+
 # Combine scala version and Kafka version to reference our Kafka
 ENV KAFKA_FULL_VERSION_NAME kafka_${SCALA_VERSION}-${KAFKA_VERSION}
 
@@ -46,5 +47,10 @@ ENV LOG_RETENTION_BYTES 20971520
 ENV NUM_PARTITIONS 1
 # Creates a topic when a message is produced to a topic that does not exist, makes testing more agile
 ENV AUTO_CREATE_TOPICS true
+
+# Set ENV vars with the build argument for future use in containers/derived images
+ENV ZOOKEEPER_VERSION $ZOOKEEPER_VERSION
+ENV SCALA_VERSION $SCALA_VERSION
+ENV KAFKA_VERSION $KAFKA_VERSION
 
 CMD ["supervisord", "-n"]
