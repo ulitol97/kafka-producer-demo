@@ -37,8 +37,8 @@ ADD assets/supervisor/kafka.ini assets/supervisor/zookeeper.ini /etc/supervisor.
 EXPOSE 2181 9092
 
 # Set the default ENV variables for my use case (overridable by containers and derived images)
+# Public IP of the Kafka cluster, defaults to localhost for internal usage (PORT is always 9092)
 ENV ADVERTISED_HOST localhost
-ENV ADVERTISED_PORT 9092
 # 15 minutes before messagges are eligible for deletion
 ENV LOG_RETENTION_MINUTES 15
 # 20MB before pruning the log

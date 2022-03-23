@@ -40,7 +40,6 @@ Additionally, the following can be used to change Kafka's base behaviour (see
 them [here](https://github.com/ulitol97/kafka-producer-demo/blob/ec91b3a889d3ed2decf0e5fcabf6df21df56f31f/kafka-zookeeper/assets/scripts/start-kafka.sh#L3)):
 
 - `ADVERTISED_HOST`: the external ip for the container (default is `localhost`)
-- `ADVERTISED_PORT`: the external port for Kafka (default is `9092`)
 - `ZK_CHROOT`: the zookeeper chroot that's used by Kafka (without / prefix),
   e.g. "kafka"
 - `LOG_RETENTION_HOURS`: the minimum age of a log file in hours to be eligible
