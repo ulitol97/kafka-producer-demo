@@ -35,6 +35,8 @@ The following environment variables can be used to modify app containers:
 
 - `TOPIC_NAME`: the name of the topic that will be constantly streaming messages
   from the container (default is `test-topic`)
+- `TIME_BETWEEN_MESSAGES`: the number of milliseconds for the producer to wait
+  between messages (default is `5000`)
 
 Additionally, the following can be used to change Kafka's base behaviour (see
 them [here](https://github.com/ulitol97/kafka-producer-demo/blob/ec91b3a889d3ed2decf0e5fcabf6df21df56f31f/kafka-zookeeper/assets/scripts/start-kafka.sh#L3)):

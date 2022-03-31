@@ -8,6 +8,9 @@ EXPOSE 2181 9092
 # Set topic name
 ENV TOPIC_NAME test-topic
 
+# Set wait between messages (millis)
+ENV TIME_BETWEEN_MESSAGES 5000
+
 # Install python/pip and python's kafka package
 RUN apk add --update py3-pip && pip install kafka-python
 

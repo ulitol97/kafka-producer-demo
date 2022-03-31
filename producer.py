@@ -7,9 +7,6 @@ import time
 
 from kafka import KafkaProducer
 
-"""Seconds to sleep between messages"""
-sleep_time = 5
-
 
 def handler(signum, frame):
     """Handler for interruptions raised by the user halting the program"""
@@ -21,6 +18,22 @@ def handler(signum, frame):
 signal.signal(signal.SIGINT, handler)
 # Provide graceful shutdown when Docker sends SIGTERM to stop container
 signal.signal(signal.SIGTERM, handler)
+
+
+def sleep_ms(milliseconds):
+    """Sleep the given amount of milliseconds"""
+    # Millis => Seconds
+    seconds = float(milliseconds / 1000)
+    time.sleep(seconds)
+
+
+def get_sleep_time(env_var="TIME_BETWEEN_MESSAGES"):
+    """Get the time to wait between messages from environment or use default"""
+    try:
+        time_str = os.environ[env_var]
+        return int(time_str)
+    except (KeyError, ValueError):
+        return 5000  # Default to 5 seconds
 
 
 def get_api_version(env_var="KAFKA_VERSION"):
@@ -41,7 +54,7 @@ def get_topic():
         return sys.argv[1].strip()
 
 
-def generate_message(arg):
+def generate_message():
     """Produce data messages: i.e.: TURTLE data mimicking a sensor reading"""
     # https://rdfshape.weso.es/link/16478801915
     # Produce a random temperature in range
@@ -60,6 +73,8 @@ def generate_message(arg):
 
 
 if __name__ == "__main__":
+    # Get the waiting time between messages
+    sleep_time = get_sleep_time()
     # Get the topic
     topic = get_topic()
     # Create the producer: string-serialized values (most straightforward)
@@ -74,8 +89,8 @@ if __name__ == "__main__":
     # Infinite loop - runs until you kill the program
     while True:
         # Generate a message
-        msg = generate_message(random.randint(1, 1000))
+        msg = generate_message()
         # Send it to the target topic
         producer.send(topic, msg)
         # Sleep for a while
-        time.sleep(sleep_time)
+        sleep_ms(sleep_time)
