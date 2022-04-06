@@ -21,6 +21,8 @@ COPY producer.py .
 # 1. Start kafka and zookeeper via supervisord (as in parent image)
 # 2. Create the kafka destination topic via kafka-scripts
 # 3. Run the producer script in workdir, passing in the target topic
+#    (use ";" to keep going even if topic creation fails, as in the case of
+#     re-launching containers)
 CMD supervisord && \
-    $KAFKA_HOME/bin/kafka-topics.sh --create --bootstrap-server localhost:9092 --topic $TOPIC_NAME && \
+    $KAFKA_HOME/bin/kafka-topics.sh --create --bootstrap-server localhost:9092 --topic $TOPIC_NAME; \
     python3 producer.py $TOPIC_NAME
