@@ -1,5 +1,6 @@
-[![Kafka Producer Image Size (tag)](https://img.shields.io/docker/image-size/ulitol97/kafka-producer/dev?label=kafka-producer)](https://hub.docker.com/r/ulitol97/kafka-zookeeper)
-[![Kafka+Zookeeper Image Size (tag)](https://img.shields.io/docker/image-size/ulitol97/kafka-zookeeper/dev?label=kafka%2Bzookeeper)](https://hub.docker.com/r/ulitol97/kafka-zookeeper)
+
+![Docker kafka-producer Image Size](https://img.shields.io/docker/image-size/ulitol97/kafka-producer/dev?label=kafka-producer)
+![Docker kafka-zookeeper Image Size](https://img.shields.io/docker/image-size/ulitol97/kafka-zookeeper/dev?label=kafka-zookeeper)
 
 # kafka-producer-demo
 
